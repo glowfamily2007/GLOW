@@ -1,40 +1,43 @@
 # Worship Setlist
 
-A lightweight, GitHub Pages-ready worship setlist planner inspired by common worship-set workflows. It is an original implementation and does not copy proprietary source code, branding, or assets.
+An original, GitHub Pages-ready worship song and setlist planner based on the visual workflow shown in the supplied Setlist Buddy screenshot.
 
 ## Features
 
-- Create and manage worship setlists
-- Song library with title, artist, key, BPM, lyrics/chords
-- Add/remove/reorder songs
-- Search songs
-- Presentation mode for large-screen lyrics/notes
-- JSON backup export/import
+- Song library
+- Search songs, artists and chart text
+- English / Tagalog filtering
+- Key and tag filtering
+- Chord / number view
+- Key transpose controls
+- Adjustable chart size
+- Print / PDF
+- Share chart link
+- Chart editor
+- Setlist creation
+- Presentation mode with previous/next songs
+- Auto-scroll
+- JSON backup and restore
 - Browser local storage
-- Responsive desktop/mobile layout
-- No backend or database required
+- Responsive mobile/tablet layout
 
 ## Run locally
 
-Simply open `index.html` in a browser.
-
-For a local server:
+Open `index.html`, or use:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000`.
+## GitHub Pages
 
-## Deploy to GitHub Pages
-
-1. Create a GitHub repository, e.g. `worship-setlist`.
-2. Upload `index.html`, `styles.css`, and `app.js`.
-3. In GitHub, open **Settings → Pages**.
+1. Create a GitHub repository named `worship-setlist`.
+2. Upload all files in this folder to the repository root.
+3. Go to **Settings → Pages**.
 4. Choose **Deploy from a branch**.
-5. Select the `main` branch and `/ (root)`.
-6. Save. GitHub will provide your public Pages URL.
+5. Select `main` and `/ (root)`.
+6. Save.
 
-## Notes
+## Important
 
-All user-created data is stored in the browser's local storage. Use **Export** regularly to make a JSON backup. This version intentionally uses original UI/code rather than reproducing the source site's proprietary implementation.
+This is an original recreation of the interface/workflow. It does not copy proprietary source code, branding, or protected assets from Setlist Buddy. Add only lyrics/charts that you have permission to use.
