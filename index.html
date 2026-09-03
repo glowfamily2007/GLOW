@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Worship Setlist</title>
+  <meta name="description" content="Simple worship setlist planner for churches and worship teams.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">W</div>
+        <div><strong>Worship Setlist</strong><span>Worship team planner</span></div>
+      </div>
+      <button class="new-btn" id="newSetlist">＋ New Setlist</button>
+      <nav>
+        <button class="nav-item active" data-view="setlists">▤ <span>My Setlists</span></button>
+        <button class="nav-item" data-view="songs">♫ <span>Song Library</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <small>Saved locally in your browser</small>
+      </div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">WORSHIP PLANNING</div>
+          <h1 id="pageTitle">My Setlists</h1>
+        </div>
+        <div class="top-actions">
+          <button class="ghost" id="exportBtn">Export</button>
+          <label class="ghost file-btn">Import <input type="file" id="importInput" accept=".json"></label>
+        </div>
+      </header>
+
+      <section id="setlistsView" class="view">
+        <div class="hero-card">
+          <div>
+            <span class="pill">WORSHIP TEAM</span>
+            <h2>Plan your next worship set.</h2>
+            <p>Create a setlist, organize songs, and keep keys, tempos, and notes together.</p>
+          </div>
+          <button class="primary" id="heroNew">Create Setlist</button>
+        </div>
+        <div class="section-head"><h3>Your Setlists</h3><span id="setlistCount"></span></div>
+        <div id="setlistGrid" class="grid"></div>
+      </section>
+
+      <section id="songsView" class="view hidden">
+        <div class="section-head">
+          <div><h3>Song Library</h3><span id="songCount"></span></div>
+          <button class="primary" id="addSongBtn">＋ Add Song</button>
+        </div>
+        <div class="search"><span>⌕</span><input id="songSearch" placeholder="Search title, artist, key..."></div>
+        <div id="songTable" class="song-table"></div>
+      </section>
+
+      <section id="editorView" class="view hidden">
+        <button class="back" id="backBtn">← Back to setlists</button>
+        <div class="editor-head">
+          <div><span class="eyebrow">SETLIST</span><h2 id="editorTitle"></h2><p id="editorMeta"></p></div>
+          <button class="primary" id="presentBtn">▶ Presentation Mode</button>
+        </div>
+        <div class="add-row">
+          <select id="songPicker"><option value="">Add a song to this setlist…</option></select>
+          <button class="primary" id="addToSetlist">Add Song</button>
+        </div>
+        <div id="setSongs" class="set-songs"></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="setlistDialog">
+    <form method="dialog" class="dialog">
+      <h3>New Setlist</h3>
+      <label>Name<input id="setlistName" required placeholder="Sunday Worship"></label>
+      <label>Date<input id="setlistDate" type="date"></label>
+      <label>Service / Event<input id="setlistEvent" placeholder="Sunday Service"></label>
+      <div class="dialog-actions"><button value="cancel" class="ghost">Cancel</button><button value="ok" class="primary">Create</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="songDialog">
+    <form method="dialog" class="dialog">
+      <h3 id="songDialogTitle">Add Song</h3>
+      <input type="hidden" id="songId">
+      <label>Song title<input id="songTitle" required placeholder="Goodness of God"></label>
+      <label>Artist / Worship Leader<input id="songArtist" placeholder="Bethel Music"></label>
+      <div class="two">
+        <label>Key<input id="songKey" placeholder="G"></label>
+        <label>BPM<input id="songBpm" type="number" placeholder="72"></label>
+      </div>
+      <label>Lyrics / Chords<textarea id="songLyrics" rows="7" placeholder="Paste lyrics or chord notes here..."></textarea></label>
+      <div class="dialog-actions"><button value="cancel" class="ghost">Cancel</button><button value="ok" class="primary">Save Song</button></div>
+    </form>
+  </dialog>
+
+  <div id="presentation" class="presentation hidden">
+    <button id="closePresentation" class="close-present">×</button>
+    <div class="present-content">
+      <div class="present-label" id="presentLabel"></div>
+      <h1 id="presentTitle"></h1>
+      <pre id="presentLyrics"></pre>
+      <div class="present-controls"><button id="prevSong">←</button><span id="presentCounter"></span><button id="nextSong">→</button></div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
